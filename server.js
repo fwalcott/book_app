@@ -28,7 +28,9 @@ app.get('/hello', (request, response) => {
     response.status(200).render('pages/index')
 }) 
 
-
+app.get('/searches/new', (request, response) => {
+    response.status(200).render('pages/searches/new')
+})
 
 
 
