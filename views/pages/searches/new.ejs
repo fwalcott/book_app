@@ -6,16 +6,19 @@
     <title>Forms</title>
 </head>
 <body>
-    <form action ="/searches/new" method ="POST">
+    <form action ="/searches" method ="POST">
         <fieldset> 
             <legend> Search </legend> 
-            <label> 
-                <span> Title</span> 
+            <label>Title
                 <input type ="text" name ="title"> 
-            </label>  
+            </label> 
+            <label>Search by Title
             <input type="radio" name ="choice" value="title">
+        </label> 
+        <label>Search by Author
             <input type="radio" name ="choice" value="author">
-            <button> Submit </button> 
+        </label>
+            <input type="submit"> Submit </input> 
         </fieldset>
     </form>
 </body>
