@@ -34,7 +34,10 @@ app.get('/searches/new', (request, response) => {
   response.status(200).render('pages/searches/new');
 });
 
-app.post('/searches', bookHandler);
+app.post('/searches', bookHandler); 
+
+app.get('/searches/error', errorHandler);
+
 
 //Handlers
 function bookHandler(request, response) {
@@ -59,6 +62,10 @@ function bookHandler(request, response) {
       console.log('ERROR', error);
       response.status(500).send('Something went wrong with the Google Books API');
     });
+} 
+
+function errorHandler(request, response){
+  response.status(500).render('pages/error')
 }
 // Constructors
 
