@@ -7,6 +7,17 @@
   <title> Document </title>
 </head>
 <body>
-  
+  <main>
+    <ul>
+    <% searchResults.forEach( book => { %>
+          <li>
+            <!-- img --><img src=<%= book.img %>>
+            <h2><%= book.bookTitle %></h2>
+            <h3><%= book.author %></h3>
+            <p><%= book.description %></p>
+            </li>
+    <% }) %>
+  </ul>
+  </main>
 </body>
 </html>
