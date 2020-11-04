@@ -45,15 +45,13 @@ function bookHandler(request, response) {
 
 
   superagent.get(URL)
-    .then(data => {
+    .then(data => data.body.items.map(book => new Book(book.volumeInfo)))
     //   console.log(data.body.items, 'data response for data.body.items');
-      data.body.items.map(book => {
-        console.log('book: ', book);
-        new Book(book.volumeInfo);
-      })
-        .then(data => {
-          response.render('/pages/searches/show', {searchResults: data});
-        });
+  // console.log(data.body.items);
+  // console.log('book: ', book);
+    .then(data => {
+      console.log('This is the data: ', data);
+      response.render('pages/searches/show', {searchResults: data});
     })
     .catch((error) => {
       console.log('ERROR', error);
@@ -69,6 +67,7 @@ function Book(obj) {
   this.img = obj.imageLinks.smallThumbnail ? obj.imageLinks.smallThumbnail.replace(httpRegex, 'https://'):noImage;
   this.author = obj.authors;
   this.description = obj.description;
+  this.isbn = obj.isbn;
 
 }
 
