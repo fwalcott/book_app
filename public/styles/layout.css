@@ -1,3 +1,28 @@
 body {
     background-color: lightseagreen;
-} 
+    display: block;
+    align-items: center;
+    }
+
+header {
+    width: 400px;
+    text-align: center;
+    border-style: solid;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin: auto;
+    background-color: rgb(158, 158, 222);
+    font-size: 30px;
+  
+  }
+
+  ul > li {
+    display: block;
+    margin: auto;
+    background-color: lightblue;
+    width: 400px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-top: 20px;
+  }
