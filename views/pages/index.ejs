@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book App</title> 
-    <link rel = "stylesheet" href = "styles/modules/reset.css">
+    <link rel = "stylesheet" href = "styles/reset.css">
     <link rel = "stylesheet" href = "styles/layout.css">
     <link rel = "stylesheet" href = "styles/base.css">
 </head>
 <body>
-    <h1> Hello World We Are Book APP</h1>
+    <header>Welcome to Book App!</header>
+  <main>
+    <section id="container">
+    <ul>
+    <% results.forEach(book => { %>
+          <li>
+            <img src=<%= book.image_url %>>
+            <h2><%= book.title %></h2>
+            <h3><%= book.author %></h3>
+            <p><%= book.description %></p>
+            <p>ISBN: <%= book.isbn %></p>
+            <% }) %>
+        </li>
+    </ul>
+</section>
+<p id="totalBooks">Total Books: <%= results.length %></p>
+  </main>
 </body>
 </html>

@@ -4,6 +4,7 @@
 const express = require('express');
 const superagent = require('superagent');
 const cors = require('cors');
+const pg = require('pg');
 const { response } = require('express');
 
 require('dotenv').config();
@@ -11,6 +12,10 @@ require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(cors());
+
+// Create postgres client
+const client = new pg.Client(process.env.DATABASE_URL);
+client.on('error', err => { throw err; });
 
 //Where my server will look for pages in the browser
 app.use(express.static('./public'));
@@ -23,8 +28,15 @@ app.set('view engine', 'ejs');
 
 //Routes
 app.get('/', (request, response) => {
-  response.status(200).render('pages/index');
+  const SQL = `SELECT * FROM books;`;
+
+  client.query(SQL)
+    .then(results => response.render('pages/index', { results: results.rows }))
+    .catch(errorHandler);
+  console.log('Database used');
 });
+
+// response.status(200).render('pages/index');
 
 app.get('/hello', (request, response) => {
   response.status(200).render('pages/index');
@@ -74,14 +86,24 @@ function Book(obj) {
   this.img = obj.imageLinks.smallThumbnail ? obj.imageLinks.smallThumbnail.replace(httpRegex, 'https://'):noImage;
   this.author = obj.authors;
   this.description = obj.description;
-  this.isbn = obj.isbn;
+  this.isbn = obj.industryIdentifiers;
 
 }
 
 
 
-app.listen(PORT, () => console.log(`Now listeniing on ${PORT}`));
+// app.listen(PORT, () => console.log(`Now listeniing on ${PORT}`));
 
+//Start server
+client.connect()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Now listening on port ${PORT}`);
+    });
+  })
+  .catch(err => {
+    console.log('ERROR', err);
+  });
 
 
 
