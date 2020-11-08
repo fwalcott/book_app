@@ -48,8 +48,9 @@ app.get('/searches/new', (request, response) => {
 
 app.post('/searches', bookHandler);
 
-app.get('*', errorHandler);
+app.get('/books/:id', requestInfo);
 
+app.get('*', errorHandler);
 
 //Handlers
 function bookHandler(request, response) {
@@ -77,6 +78,18 @@ function bookHandler(request, response) {
 function errorHandler(request, response){
   response.status(500).render('pages/error');
 }
+
+function requestInfo(request, response) {
+  const SQL = `SELECT * FROM books WHERE id = $1`;
+  const SQL_values = [request.params.id];
+  
+  client.query(SQL, SQL_values)
+    .then(results => response.render('pages/books/detail', {results: results.rows }))
+    .catch(errorHandler);
+  console.log('Database used');
+
+}
+
 // Constructors
 
 function Book(obj) {
