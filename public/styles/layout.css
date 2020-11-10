@@ -26,3 +26,14 @@ header {
     padding: 20px;
     margin-top: 20px;
   }
+
+  #description {
+    background-color: rgb(199, 222, 230);
+    padding: 30px;
+  }
+
+  button {
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
