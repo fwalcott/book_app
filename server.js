@@ -75,11 +75,13 @@ function bookHandler(request, response) {
   superagent.get(URL)
     .then(data => data.body.items.map(book => new Book(book.volumeInfo)))
     //   console.log(data.body.items, 'data response for data.body.items');
+
     // console.log(data.body.items);
     // console.log('book: ', book);
     .then(book => {
       console.log('This is the data: ', book);
       response.render('pages/searches/show', { searchResults: book });
+
     })
     .catch((error) => {
       console.log('ERROR', error);
