@@ -1,37 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/reset.css">
-  <link rel="stylesheet" href="/styles/layout.css">
-  <link rel="stylesheet" href="/styles/base.css">
-  <title>Book Details</title>
-</head>
-
-<body>
-  <header>Details</header>
-  <main>
     <section id="container">
-      <ul>
-        <% results.forEach(book => { %>
-        <li>
-          <img src=<%= book.image_url %>>
+          <img src="<%=book.image_url %>">
           <h2><%= book.title %></h2>
           <h3><%= book.author %></h3>
           <p id="description"><%= book.description %></p>
           <p>ISBN: <%= book.isbn %></p>
           <p>Bookshelf: Tech Journal</p>
-        </li>
-        <% }) %>
-      </ul>
+          <form >
+          <button>Back to Home Page</button>
+        </form>
     </section>
-
-    <button id="home"> 
-           <a href="/">Back to Home Page</a> 
-    </button>
-  </main>
-</body>
-
-</html>
