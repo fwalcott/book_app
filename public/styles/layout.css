@@ -38,7 +38,6 @@ header {
     text-align: center;
     margin: auto;
     width: 400px;
-    padding: 20px;
   }
   
   #addBook {
@@ -61,4 +60,8 @@ header {
     text-align: center;
     margin: auto;
     width: 400px;
+  }
+
+  #searchForm {
+    padding: 20px;
   }

@@ -4,15 +4,7 @@
 <%- include('../layout/head') %>
 
 <body>
-    <header>Welcome to Book App!</header>
-    <nav>
-        <ul>
-          <li>
-            <a href="/searches/new">Search Books</a>
-          </li>
-        </ul>
-      </nav>
-    <main>
+<%- include('../layout/header') %>
         <section id="container">
             <ul>
                 <% results.forEach(book => { %>
