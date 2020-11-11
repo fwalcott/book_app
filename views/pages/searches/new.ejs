@@ -1,26 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=>, initial-scale=1.0">
-    <title>Forms</title>
-    <link rel="stylesheet" href="/styles/reset.css">
-    <link rel="stylesheet" href="/styles/layout.css">
-    <link rel="stylesheet" href="/styles/base.css">
-</head>
+    <%- include('../../layout/head') %>
 
 <body>
-    <header>Search Books</header>
-    <nav>
-        <ul>
-          <li>
-            <a href="/">Home Page</a>
-          </li>
-        </ul>
-      </nav>
+    <%- include('../../layout/header') %>
     <main>
-    <form action="/searches" method="POST">
+    <form id="searchForm" action="/searches" method="POST">
         <fieldset>
             <label>Search
                 <input type="text" name="title" placeholder="Enter title or author name">

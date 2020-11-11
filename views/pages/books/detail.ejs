@@ -1,11 +1,15 @@
     <section id="container">
+      <ul>
+        <li>
           <img src="<%=book.image_url %>">
           <h2><%= book.title %></h2>
           <h3><%= book.author %></h3>
           <p id="description"><%= book.description %></p>
           <p>ISBN: <%= book.isbn %></p>
           <p>Bookshelf: Tech Journal</p>
-          <form >
-          <button>Back to Home Page</button>
+          <form>
+          <button><a href="/">Back to Home Page</a></button>
         </form>
+      </li>
+      </ul>
     </section>
