@@ -32,8 +32,33 @@ header {
     padding: 30px;
   }
 
-  button {
+  form {
+    background-color: lightblue;
     display: block;
     text-align: center;
     margin: auto;
+    width: 400px;
+    padding: 20px;
+  }
+  
+  #addBook {
+    background-color: lightblue;
+    display: block;
+    text-align: center;
+    margin: auto;
+    width: 360px;
+    padding: 10px;
+  }
+
+  button {
+    padding: 10px;
+    width: 200px;
+
+  }
+
+  nav ul li{
+    background-color: lightblue;
+    text-align: center;
+    margin: auto;
+    width: 400px;
   }

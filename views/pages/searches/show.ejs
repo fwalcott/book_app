@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <link rel = "stylesheet" href = "styles/reset.css">
-  <link rel = "stylesheet" href = "styles/layout.css">
-  <link rel = "stylesheet" href = "styles/base.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/base.css">
   <title> Document </title>
 </head>
+
 <body>
   <header>Search Results</header>
+  <nav>
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/searches/new">Search Books</a>
+      </li>
+    </ul>
+  </nav>
+<main>
   <main>
     <section id="container">
-    <ul>
-    <% searchResults.forEach( book => { %>
-          <li>
-            <img src=<%= book.img %>>
-            <h2><%= book.bookTitle %></h2>
-            <h3><%= book.author %></h3>
-            <p><%= book.description %></p>
-            </li>
-    <% }) %>
-  </ul>
-</section>
+      <ul>
+        <% searchResults.forEach( book => { %>
+        <li>
+          <%- include('../books/detail', {book: book}) %>
+          <form id="addBook" method="POST" action="/addBook">
+            <input type="text" name="title" value=" <%= book.title %>"/>
+            <input type="text" name="author" value=" <%= book.author %>"/>
+            <input type="text" name="isbn" value=" <%= book.isbn %>"/>
+            <input type="text" name="image_url" value=" <%= book.image_url %>"/>
+            <input type="text" name="description" value=" <%= book.description %>"/>
+              <button type="submit">Add Book</button>
+          </form>
+        </li>
+        <% }) %>
+      </ul>
+    </section>
   </main>
 </body>
+
 </html>

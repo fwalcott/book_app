@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=>, initial-scale=1.0">
     <title>Forms</title>
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/base.css">
 </head>
+
 <body>
-    <form action ="/searches" method ="POST">
-        <fieldset> 
-            <legend> Search </legend> 
-            <label>Title
-                <input type ="text" name ="title"> 
-            </label> 
+    <header>Search Books</header>
+    <nav>
+        <ul>
+          <li>
+            <a href="/">Home Page</a>
+          </li>
+        </ul>
+      </nav>
+    <main>
+    <form action="/searches" method="POST">
+        <fieldset>
+            <label>Search
+                <input type="text" name="title" placeholder="Enter title or author name">
+            </label>
+            <br>
             <label>Search by Title
-            <input type="radio" name ="choice" value="title">
-        </label> 
-        <label>Search by Author
-            <input type="radio" name ="choice" value="author">
-        </label>
-            <input type="submit"> Submit </input> 
+                <input type="radio" name="choice" value="title">
+            </label>
+            <br>
+            <label>Search by Author
+                <input type="radio" name="choice" value="author">
+            </label>
+            <br>
         </fieldset>
+        <button type="submit">Search Book</button>
     </form>
 </body>
+
 </html>
